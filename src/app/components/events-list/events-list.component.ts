@@ -92,11 +92,7 @@ export class EventsListComponent implements OnInit {
       time: '9:00 am',
       price: 950.00,
       imageUrl: '/assets/images/ng-nl.png',
-      location: {
-        address: 'The NG-NL Convention Center & Scuba Shop',
-        city: 'Amsterdam',
-        country: 'Netherlands'
-      },
+      onlineUrl: 'http://ng-ln.org',
       sessions: [
         {
           id: 1,
