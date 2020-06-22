@@ -1,5 +1,5 @@
-import {EventsListComponent} from './components/events-list/events-list.component';
-import {EventDetailsComponent} from './components/event-details/event-details.component';
+import {EventsListComponent} from './events/events-list/events-list.component';
+import {EventDetailsComponent} from './events/event-details/event-details.component';
 import { Routes } from '@angular/router';
 
 export const appRoutes: Routes = [
