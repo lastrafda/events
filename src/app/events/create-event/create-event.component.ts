@@ -21,7 +21,10 @@ import {Router} from '@angular/router';
 })
 export class CreateEventComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  isDirty: boolean;
+  constructor(private router: Router) {
+    this.isDirty = true;
+  }
 
   ngOnInit(): void {
   }

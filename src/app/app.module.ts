@@ -28,7 +28,20 @@ import {EventRouteActivator} from './events/event-details/event-route-activator.
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [EventsService, ToastrService, EventRouteActivator],
+  providers: [
+    EventsService,
+    ToastrService,
+    EventRouteActivator,
+    { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState}
+  ],
   bootstrap: [EventsAppComponent]
 })
 export class AppModule { }
+
+// We added this function here just for convenience
+export default function checkDirtyState(component: CreateEventComponent) {
+  if (component.isDirty){
+    return window.confirm('You have not saved this event, do you really want to canel?');
+  }
+  return true;
+}
