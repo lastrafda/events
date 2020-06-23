@@ -1,28 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {EventsService} from '../../events.service';
 
 @Component({
   selector: 'app-create-event',
-  template: `
-    <h1>New Event</h1>
-    <hr>
-    <div class="col-md-6">
-      <h3>asdasd</h3>
-      <br>
-      <br>
-      <button type="submit" class="btn btn-primary">Save</button>
-      <button type="button"
-              class="btn btn-default"
-              (click)="cancel()">Cancel</button>
-    </div>
-  `,
-  styles: [
-  ]
+  templateUrl: 'create-event.component.html',
+  styleUrls: ['create-event.component.css']
 })
 export class CreateEventComponent implements OnInit {
-
+  newEvent;
   isDirty: boolean;
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private eventsService: EventsService) {
     this.isDirty = true;
   }
 
@@ -31,5 +20,10 @@ export class CreateEventComponent implements OnInit {
 
   cancel() {
     this.router.navigate(['/events']);
+  }
+
+  saveEvent(formValues) {
+    this.isDirty = false;
+    this.eventsService.saveEvent(formValues);
   }
 }
