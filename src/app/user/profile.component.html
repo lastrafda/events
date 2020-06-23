@@ -3,11 +3,13 @@
   <hr>
   <div class="col-md-4">
     <form [formGroup]="profileForm" (ngSubmit)="saveProfile(profileForm.value)" autocomplete="off" novalidate>
-      <div class="form-group">
+      <em *ngIf="!isValid('firstName')">Required</em>
+      <div class="form-group" [ngClass]="{'error': !isValid('firstName')}">
         <label for="firstName">First Name:</label>
         <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name..." />
       </div>
-      <div class="form-group">
+      <em *ngIf="!isValid('lastName')">Required</em>
+      <div class="form-group" [ngClass]="{'error': !isValid('lastName')}">
         <label for="lastName">Last Name:</label>
         <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="Last Name..." />
       </div>
