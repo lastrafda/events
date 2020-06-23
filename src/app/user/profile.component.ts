@@ -14,12 +14,12 @@ export class ProfileComponent {
   constructor(public auth: AuthService,
               private router: Router) {
     this.firstName = new FormControl(
-      this.auth.currentUser.firstName,
-      Validators.required
+      this.auth.currentUser.firstName, [Validators.required,
+      Validators.pattern('[a-zA-Z].*')]
     );
     this.lastName = new FormControl(
-      this.auth.currentUser.lastName,
-      Validators.required
+      this.auth.currentUser.lastName, [Validators.required,
+      Validators.pattern('[a-zA-Z].*')]
     );
     this.profileForm = new FormGroup({
       firstName: this.firstName,
