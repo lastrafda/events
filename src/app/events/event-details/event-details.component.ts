@@ -12,9 +12,12 @@ export class EventDetailsComponent implements OnInit {
 
   event: any;
   addMode: boolean;
+  filterBy: string;
 
   constructor(private eventsService: EventsService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) {
+    this.filterBy = 'all';
+  }
 
   ngOnInit(): void {
     this.event =
