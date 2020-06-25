@@ -16,7 +16,7 @@
     <div class="form-group" [ngClass]="{'error': duration.invalid && duration.dirty}">
       <label for="duration">Duration:</label>
       <em *ngIf="duration.invalid && duration.dirty">Required</em>
-      <select formControlName="level" class="form-control" id="duration">
+      <select formControlName="duration" class="form-control" id="duration">
         <option value="">select duration...</option>
         <option value="1">Half Hour</option>
         <option value="2">1 Hour</option>
@@ -43,6 +43,6 @@
       <textarea formControlName="abstract" id="abstract" rows=3 class="form-control" placeholder="abstract..."></textarea>
     </div>
     <button type="submit" [disabled]="newSessionForm.invalid" class="btn btn-primary">Save</button>
-    <button type="button" class="btn btn-default">Cancel</button>
+    <button type="button" class="btn btn-default" (click)="cancelSession()">Cancel</button>
   </form>
 </div>
