@@ -11,7 +11,7 @@
     <div class="col-md-6">
       <div><strong>Date:</strong> {{event?.date | date:'shortDate'}}</div>
       <div><strong>Time:</strong> {{event?.time}}</div>
-      <div><strong>Price:</strong> ${{event?.price}}</div>
+      <div><strong>Price:</strong>{{event?.price | currency:'USD'}}</div>
     </div>
     <div class="col-md-6">
       <address>
