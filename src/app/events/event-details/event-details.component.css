@@ -14,3 +14,7 @@ a {
 .create-session-title {
   margin: 0;
 }
+
+.session-actions{
+  margin-bottom: 10px;
+}
