@@ -16,9 +16,10 @@ import {EventRouteActivator} from './events/event-details/event-route-activator.
 import {EventsListResolver} from './events/events-list/events-list-resolver.service';
 import {AuthService} from './user/auth.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CreateSessionComponent} from "./events/event-details/create-session.component";
-import {SessionListComponent} from "./events/event-details/session-list.component";
-import {CollapsibleWellComponent} from "./common/collapsible-well.component";
+import {CreateSessionComponent} from './events/event-details/create-session.component';
+import {SessionListComponent} from './events/event-details/session-list.component';
+import {CollapsibleWellComponent} from './common/collapsible-well.component';
+import {DurationPipe} from './shared/duration.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {CollapsibleWellComponent} from "./common/collapsible-well.component";
     CreateEventComponent,
     CreateSessionComponent,
     Error404Component,
-    CollapsibleWellComponent
+    CollapsibleWellComponent,
+    DurationPipe
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,7 @@ export class AppModule { }
 // We added this function here just for convenience
 export default function checkDirtyState(component: CreateEventComponent) {
   if (component.isDirty){
-    return window.confirm('You have not saved this event, do you really want to canel?');
+    return window.confirm('You have not saved this event, do you really want to cancel?');
   }
   return true;
 }
