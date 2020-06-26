@@ -18,11 +18,14 @@ import {AuthService} from './user/auth.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CreateSessionComponent} from './events/event-details/create-session.component';
 import {SessionListComponent} from './events/event-details/session-list.component';
-import {CollapsibleWellComponent} from './common/collapsible-well.component';
+import {CollapsibleWellComponent,
+  JQ_TOKEN} from './common';
 import {DurationPipe} from './shared/duration.pipe';
 
 // @ts-ignore
-declare let toastr: Toastr = window.toastr;
+const toastr: Toastr = window.toastr;
+const jqKey = '$';
+const jQuery = window[jqKey];
 
 @NgModule({
   declarations: [
