@@ -24,6 +24,8 @@ import {
   SimpleModalComponent
 } from './common';
 import {DurationPipe} from './shared/duration.pipe';
+import { UpvoteComponent } from './events/upvote/upvote.component';
+import {VoterService} from './events/event-details/voter.service';
 
 // @ts-ignore
 const toastr: Toastr = window.toastr;
@@ -44,7 +46,8 @@ const jQuery = window[jqKey];
     CollapsibleWellComponent,
     SimpleModalComponent,
     DurationPipe,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpvoteComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ const jQuery = window[jqKey];
     EventRouteActivator,
     EventsListResolver,
     AuthService,
+    VoterService,
     { provide: TOASTR_TOKEN, useValue: toastr},
     { provide: JQ_TOKEN, useValue: jQuery},
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState}
