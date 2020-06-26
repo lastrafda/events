@@ -13,10 +13,12 @@ export class EventDetailsComponent implements OnInit {
   event: any;
   addMode: boolean;
   filterBy: string;
+  sortBy: string;
 
   constructor(private eventsService: EventsService,
               private route: ActivatedRoute) {
     this.filterBy = 'all';
+    this.sortBy = 'votes';
   }
 
   ngOnInit(): void {
