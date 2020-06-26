@@ -19,7 +19,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CreateSessionComponent} from './events/event-details/create-session.component';
 import {SessionListComponent} from './events/event-details/session-list.component';
 import {CollapsibleWellComponent,
-  JQ_TOKEN} from './common';
+  JQ_TOKEN,
+  SimpleModalComponent} from './common';
 import {DurationPipe} from './shared/duration.pipe';
 
 // @ts-ignore
@@ -39,6 +40,7 @@ const jQuery = window[jqKey];
     CreateSessionComponent,
     Error404Component,
     CollapsibleWellComponent,
+    SimpleModalComponent,
     DurationPipe
   ],
   imports: [
@@ -53,6 +55,7 @@ const jQuery = window[jqKey];
     EventsListResolver,
     AuthService,
     { provide: TOASTR_TOKEN, useValue: toastr},
+    { provide: JQ_TOKEN, useValue: jQuery},
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState}
   ],
   bootstrap: [EventsAppComponent]
