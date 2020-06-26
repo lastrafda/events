@@ -18,9 +18,11 @@ import {AuthService} from './user/auth.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CreateSessionComponent} from './events/event-details/create-session.component';
 import {SessionListComponent} from './events/event-details/session-list.component';
-import {CollapsibleWellComponent,
-  JQ_TOKEN,
-  SimpleModalComponent} from './common';
+import {
+  CollapsibleWellComponent,
+  JQ_TOKEN, ModalTriggerDirective,
+  SimpleModalComponent
+} from './common';
 import {DurationPipe} from './shared/duration.pipe';
 
 // @ts-ignore
@@ -41,7 +43,8 @@ const jQuery = window[jqKey];
     Error404Component,
     CollapsibleWellComponent,
     SimpleModalComponent,
-    DurationPipe
+    DurationPipe,
+    ModalTriggerDirective
   ],
   imports: [
     BrowserModule,
