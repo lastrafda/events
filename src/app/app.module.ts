@@ -26,6 +26,7 @@ import {
 import {DurationPipe} from './shared/duration.pipe';
 import { UpvoteComponent } from './events/upvote/upvote.component';
 import {VoterService} from './events/event-details/voter.service';
+import {LocationValidatorDirective} from './events/create-event/location-validator.directive';
 
 // @ts-ignore
 const toastr: Toastr = window.toastr;
@@ -41,6 +42,7 @@ const jQuery = window[jqKey];
     EventDetailsComponent,
     SessionListComponent,
     CreateEventComponent,
+    LocationValidatorDirective,
     CreateSessionComponent,
     Error404Component,
     CollapsibleWellComponent,
