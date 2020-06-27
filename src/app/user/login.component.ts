@@ -18,7 +18,7 @@ export class LoginComponent{
     this.mouseOverLogin = false;
   }
   login(formValues: any) {
-    this.authService.loginUser(formValues.name, formValues.password);
+    this.authService.loginUser(formValues.userName, formValues.password);
     this.router.navigate(['events']);
   }
   cancel(){
