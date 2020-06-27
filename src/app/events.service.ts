@@ -1,22 +1,28 @@
 import {EventEmitter, Injectable} from '@angular/core';
-import {Observable, Subject} from 'rxjs';
+import {Observable, of, Subject} from 'rxjs';
 import {IEvent, ISession} from './events/event.model';
+import {HttpClient} from '@angular/common/http';
+import {catchError} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventsService {
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   getEvents(): Observable<IEvent[]>{
-    const subject = new Subject<IEvent[]>();
-    setTimeout(() => {
-      subject.next(EVENTS);
-      subject.complete();
-    }, 100);
-    return subject;
+    return this.http.get<IEvent[]>('/api/events')
+      .pipe(catchError(this.handleError<IEvent[]>('getEvents', [])));
+  }
+
+  // This is a nice template that I can use in other projects to handle errors
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      return of(result as T);
+    };
   }
 
   getEvent(id: number): IEvent{
