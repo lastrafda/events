@@ -17,16 +17,9 @@ export class EventsService {
       .pipe(catchError(this.handleError<IEvent[]>('getEvents', [])));
   }
 
-  // This is a nice template that I can use in other projects to handle errors
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      return of(result as T);
-    };
-  }
-
-  getEvent(id: number): IEvent{
-    return EVENTS.find(event => event.id === id);
+  getEvent(id: number): Observable<IEvent>{
+    return this.http.get<IEvent>(`/api/events/${id}`)
+      .pipe(catchError(this.handleError<IEvent>('getEvents')));
   }
 
   saveEvent(event: IEvent) {
@@ -59,6 +52,14 @@ export class EventsService {
       emitter.emit(results);
     }, 100);
     return emitter;
+  }
+
+  // This is a nice template that I can use in other projects to handle errors
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      return of(result as T);
+    };
   }
 }
 

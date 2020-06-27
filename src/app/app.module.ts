@@ -12,7 +12,6 @@ import { CreateEventComponent } from './events/create-event/create-event.compone
 import {Error404Component} from './errors/404.component';
 import {EventsService} from './events.service';
 import {Toastr, TOASTR_TOKEN} from './toastr.service';
-import {EventRouteActivator} from './events/event-details/event-route-activator.service';
 import {EventsListResolver} from './events/events-list/events-list-resolver.service';
 import {AuthService} from './user/auth.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -28,6 +27,7 @@ import { UpvoteComponent } from './events/upvote/upvote.component';
 import {VoterService} from './events/event-details/voter.service';
 import {LocationValidatorDirective} from './events/create-event/location-validator.directive';
 import {HttpClientModule} from '@angular/common/http';
+import {EventResolver} from './event.resolver';
 
 // @ts-ignore
 const toastr: Toastr = window.toastr;
@@ -61,10 +61,10 @@ const jQuery = window[jqKey];
   ],
   providers: [
     EventsService,
-    EventRouteActivator,
     EventsListResolver,
     AuthService,
     VoterService,
+    EventResolver,
     { provide: TOASTR_TOKEN, useValue: toastr},
     { provide: JQ_TOKEN, useValue: jQuery},
     { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState}

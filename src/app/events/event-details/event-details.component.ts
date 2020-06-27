@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EventsService} from '../../events.service';
 import {ActivatedRoute, Params} from '@angular/router';
-import {ISession} from "../event.model";
+import {IEvent, ISession} from '../event.model';
 
 @Component({
   selector: 'app-event-details',
@@ -25,8 +25,8 @@ export class EventDetailsComponent implements OnInit {
     // Es importante que cada vez que estemos navegando a otra página
     // pero dentro del mismo componente, necesitamos manegar el t0do el estado
     // de este. Por eso resetearemos el estado
-    this.route.params.forEach((params: Params) => {
-      this.event = this.eventsService.getEvent(+params.id);
+    this.route.data.forEach((data) => {
+      this.event = data.event;
       this.addMode = false;
       this.filterBy = 'all';
       this.sortBy = 'votes';
