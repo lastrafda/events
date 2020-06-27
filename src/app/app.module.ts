@@ -27,6 +27,7 @@ import {DurationPipe} from './shared/duration.pipe';
 import { UpvoteComponent } from './events/upvote/upvote.component';
 import {VoterService} from './events/event-details/voter.service';
 import {LocationValidatorDirective} from './events/create-event/location-validator.directive';
+import {HttpClientModule} from '@angular/common/http';
 
 // @ts-ignore
 const toastr: Toastr = window.toastr;
@@ -55,6 +56,7 @@ const jQuery = window[jqKey];
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
