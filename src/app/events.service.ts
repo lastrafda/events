@@ -32,25 +32,9 @@ export class EventsService {
       .pipe(catchError(this.handleError<IEvent>('saveEvent')));
   }
 
-  searchSessions(searchTerm: string) {
-    const term = searchTerm.toLowerCase();
-    let results: ISession[] = [];
-
-    EVENTS.forEach(event => {
-      let matchingSessions = event.sessions
-        .filter(session => session.name.toLowerCase().indexOf(term) > -1);
-      matchingSessions = matchingSessions.map((session: any) => {
-        session.eventId = event.id;
-        return session;
-      });
-      results = [...results, ...matchingSessions];
-    });
-
-    const emitter = new EventEmitter(true);
-    setTimeout(() => {
-      emitter.emit(results);
-    }, 100);
-    return emitter;
+  searchSessions(searchTerm: string): Observable<ISession[]> {
+    return this.http.get<ISession[]>(`/api/sessions/search?search=${searchTerm}`)
+      .pipe(catchError(this.handleError<ISession[]>('searchSession')));
   }
 
   // This is a nice template that I can use in other projects to handle errors
