@@ -46,4 +46,10 @@ export class ProfileComponent {
     return this[fieldName].valid
       || this[fieldName].untouched;
   }
+
+  logout() {
+    this.auth.logout().subscribe(() => {
+      this.router.navigate(['/user/login']);
+    });
+  }
 }
