@@ -22,7 +22,7 @@ export class LoginComponent{
   login(formValues: any) {
     this.authService.loginUser(formValues.userName, formValues.password)
       .subscribe(response => {
-        if(!response){
+        if (!response){
           this.loginInvalid = true;
         } else {
           this.router.navigate(['events']);
