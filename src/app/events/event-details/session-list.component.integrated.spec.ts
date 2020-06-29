@@ -9,6 +9,9 @@ import {AuthService} from '../../user/auth.service';
 import {VoterService} from './voter.service';
 import {ISession} from '../event.model';
 import {By} from 'protractor';
+import {CollapsibleWellComponent} from '../../common';
+import {DurationPipe} from '../../shared/duration.pipe';
+import {UpvoteComponent} from '../upvote/upvote.component';
 
 describe('SessionListComponent', () => {
   let fixture: ComponentFixture<SessionListComponent>;
@@ -17,13 +20,21 @@ describe('SessionListComponent', () => {
   let debugEl: DebugElement;
 
   beforeEach(async(() => {
-    let mockAuthService = {};
-    let mockVoterService = {};
+    const mockAuthService = {
+      isAuthenticated: () => true,
+      currentUser: {username: 'Joe'}
+    };
+    const mockVoterService = {
+      userHasVoted: () => true
+    };
 
     TestBed.configureTestingModule({
       imports: [],
       declarations: [
-        SessionListComponent
+        SessionListComponent,
+        UpvoteComponent,
+        CollapsibleWellComponent,
+        DurationPipe
       ],
       providers: [
         {provide: AuthService, useValue: mockAuthService},
@@ -45,7 +56,7 @@ describe('SessionListComponent', () => {
       component.sessions = [
         {
           id: 3,
-          name: 'Sesssion 1',
+          name: 'Session 1',
           presenter: 'Joe',
           duration: 1,
           level: 'beginner',
@@ -59,6 +70,8 @@ describe('SessionListComponent', () => {
 
       component.ngOnChanges();
       fixture.detectChanges();
+
+      expect(element.querySelector('[well-title]').textContent).toContain('Session 1');
 
     });
   });
