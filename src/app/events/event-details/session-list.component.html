@@ -6,12 +6,17 @@
     </div>
   </div>
   <div class="col-md-10">
-    <collapsible-well [title]="session.name" [voters]="session.voters.length">
-      <h6>{{session.presenter}}</h6>
-      <span>Duration: {{session.duration | duration}}</span><br />
-      <span>Level: {{session.level}}</span>
+    <collapsible-well>
+      <div well-title>
+        <h4 class="well-title">{{session.name}} <i *ngIf="session.voters > 3" class="glyphicon glyphicon-fire" style="color: red; float:right"></i></h4>
+      </div>
+      <div well-body>
+        <h6>{{session.presenter}}</h6>
+        <span>Duration: {{session.duration | duration}}</span><br />
+        <span>Level: {{session.level}}</span>
 
-      <p>{{session.abstract}}</p>
+        <p>{{session.abstract}}</p>
+      </div>
     </collapsible-well>
   </div>
 </div>
