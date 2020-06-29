@@ -17,7 +17,7 @@ function sortByVotes(s1: ISession, s2: ISession) {
 }
 
 @Component({
-  selector: 'session-list',
+  selector: 'app-session-list',
   templateUrl: './session-list.component.html'
 })
 export class SessionListComponent implements OnChanges{

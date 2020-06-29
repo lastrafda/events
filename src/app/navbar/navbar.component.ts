@@ -4,7 +4,7 @@ import {IEvent, ISession} from '../events/event.model';
 import {EventsService} from '../events.service';
 
 @Component({
-  selector: 'nav-bar',
+  selector: 'app-nav-bar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })

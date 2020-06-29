@@ -1,10 +1,10 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {ISession} from "../event.model";
-import {restrictedWords} from "../../shared/restricted-words.validator";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ISession} from '../event.model';
+import {restrictedWords} from '../../shared/restricted-words.validator';
 
 @Component({
-  selector: 'create-session',
+  selector: 'app-create-session',
   templateUrl: './create-session.component.html',
   styleUrls: ['./create-session.component.css']
 })
@@ -38,7 +38,7 @@ export class CreateSessionComponent implements OnInit {
   }
 
   saveSession(formValues) {
-    let session: ISession = {
+    const session: ISession = {
       id: undefined,
       name: formValues.name,
       presenter: formValues.presenter,

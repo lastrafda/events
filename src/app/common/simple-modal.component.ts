@@ -2,7 +2,7 @@ import {Component, ElementRef, Inject, Input, ViewChild} from '@angular/core';
 import {JQ_TOKEN} from './jQuery.service';
 
 @Component({
-  selector: 'simple-modal',
+  selector: 'app-simple-modal',
   template: `
     <div [id]="elementId" #modalContainer class="modal fade" tabindex="-1">
         <div class="modal-dialog">

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
-  selector: 'upvote',
+  selector: 'app-up-vote',
   templateUrl: './upvote.component.html',
   styleUrls: ['./upvote.component.css']
 })

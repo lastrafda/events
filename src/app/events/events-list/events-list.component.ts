@@ -4,7 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {IEvent} from '../event.model';
 
 @Component({
-  selector: 'events-list',
+  selector: 'app-events-list',
   templateUrl: './events-list.component.html',
   styleUrls: ['./events-list.component.css']
 })

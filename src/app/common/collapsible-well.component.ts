@@ -1,7 +1,7 @@
-import {Component, Input} from "@angular/core";
+import {Component, Input} from '@angular/core';
 
 @Component({
-  selector:  'collapsible-well',
+  selector:  'app-collapsible-well',
   template: `
   <div (click)="toggleContent()" class="well pointable">
     <ng-content select="[well-title]"></ng-content>

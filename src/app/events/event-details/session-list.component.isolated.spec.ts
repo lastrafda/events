@@ -3,7 +3,9 @@ import {ISession} from '../event.model';
 
 describe('SessionListComponent', () => {
   let component: SessionListComponent;
+  // tslint:disable-next-line:prefer-const
   let mockAuthService;
+  // tslint:disable-next-line:prefer-const
   let mockVoterService;
 
   beforeEach(() => {

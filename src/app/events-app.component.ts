@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from './user/auth.service';
 
 @Component({
-  selector: 'events-app',
+  selector: 'app-events',
   template: `
-    <nav-bar></nav-bar>
+    <app-nav-bar></app-nav-bar>
     <router-outlet></router-outlet>
   `,
 })
