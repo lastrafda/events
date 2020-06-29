@@ -72,7 +72,9 @@ describe('SessionListComponent', () => {
       fixture.detectChanges();
 
       expect(element.querySelector('[well-title]').textContent).toContain('Session 1');
-
+      // Here is another way to get an element (It's more powerful than the element.querySelector)
+      // expect(debugEl.query(By.css('[well-title]'))
+      //  .nativeElement.textContent).toContain('Session 1');
     });
   });
 });
